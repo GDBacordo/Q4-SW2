@@ -13,42 +13,61 @@
 			background-size: cover;
 			font-family:Mali;
 		}
-		.row  {
+		.container  {
 			background-color:#ecebeb;
 			border: 10px solid transparent;
 			border-image: url(https://collection.ju.mp/assets/images/gallery33/08bcd92d.png?v=0236594d) 9 round;
 		}
-		button {
+		.calculate {
 			border:2px solid #E58B8F;
 			border-color:#f2a5ae #B87A8B #B87A8B #f2a5ae;
 		}
-		button:hover {
+		.calculate:hover {
 			background-color:#F5CCD580;
 		}
 	</style>
 </head>
 <body>
 
-	<div class="row w-50 p-3 position-absolute top-50 start-50 translate-middle">
+	<div class="container w-50 p-3 position-absolute top-50 start-50 translate-middle">
 
-		<div class="col-xl-5 d-flex justify-content-center">
-			<img src="https://collection.ju.mp/assets/images/gallery18/9c17415b.gif?v=0236594d" alt="white kitty waving">
+		<div class="row">
+
+			<div class="col-xl-2">
+				<button onclick="displayText()" class="border-0 bg-transparent">
+					<img src="https://www.iconsdb.com/icons/preview/pink/help-xxl.png" class="w-75" alt="pink information button with a white question mark">
+				</button>
+			</div>
+
+			<div class="col-xl-10">
+				<span id="textField" style="display:none"> Input some numbers in the two input fields to get started. Use the buttons to calculate your results. To hide the instructions, click the information button again.</span>
+			</div>
+
 		</div>
 
-		<div class="col-xl-7">
-			<h1>Simple Calculator</h1>
-				<p>Hi, my name is Miru! I'm here to give you a Math challenge. Input some numbers to start.</p>
+		<hr>
 
-				<input type="number" id="digit_1" name="digit_1" placeholder="Enter first number">
-				<input type="number" id="digit_2" name="digit_2" placeholder="Enter second number">
-				<div class="buttons mt-3">
-					<button type="submit" onclick="exponentiation()">Exponent</button>
-					<button type="submit" onclick="modulo()">Remainder</button>
-					<button type="submit" onclick="multiplication()">Product</button>
-					<button type="submit" onclick="equality()">Equality</button>
-				</div>
+		<div class="row">
+
+			<div class="col-xl-5 d-flex justify-content-center">
+				<img src="https://collection.ju.mp/assets/images/gallery18/9c17415b.gif?v=0236594d" alt="white kitty waving">
+			</div>
+
+			<div class="col-xl-7">
+				<h1>Simple Calculator</h1>
+					<p>Hi, my name is Miru! I'm here to give you a Math challenge.</p>
+
+					<input type="number" id="digit_1" name="digit_1" placeholder="Enter first number">
+					<input type="number" id="digit_2" name="digit_2" placeholder="Enter second number">
+					<div class="buttons mt-3">
+						<button class="calculate" type="submit" onclick="exponentiation()">Exponent</button>
+						<button class="calculate" type="submit" onclick="modulo()">Remainder</button>
+						<button class="calculate" type="submit" onclick="multiplication()">Product</button>
+						<button class="calculate" type="submit" onclick="equality()">Equality</button>
+					</div>
+			</div>
+
 		</div>
-
 	</div>
 
 	<script>
@@ -83,7 +102,14 @@
 			  window.alert(digit_1 + " and " + digit_2 + " are not equal.");
 			}
 		}
+		function displayText() {
+			var text = document.getElementById("textField");
+			if (text.style.display === "none") {
+				text.style.display = "block";
+			} else {
+				text.style.display = "none";
+			}
+		}
 	</script>
-
 </body>
 </html>
